@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* Nom de SGBD :  MySQL 5.0                                     */
-/* Date de création :  19/05/2015 15:30:42                      */
+/* Date de création :  19/05/2015 16:08:40                      */
 /*==============================================================*/
 
 
@@ -21,8 +21,9 @@ drop table if exists SCORE;
 /*==============================================================*/
 create table CATEGORIE
 (
-   CATEGORIE            longtext not null,
-   primary key (CATEGORIE)
+   IDCAT                int not null,
+   LIBELLE              longtext not null,
+   primary key (IDCAT)
 );
 
 /*==============================================================*/
@@ -31,7 +32,7 @@ create table CATEGORIE
 create table JEU_DE_QUESTIONS
 (
    IDJEUQUEST           int not null,
-   CATEGORIE            longtext not null,
+   IDCAT                int not null,
    IDJEUREP             int not null,
    primary key (IDJEUQUEST)
 );
@@ -55,7 +56,6 @@ create table JOUEUR
 (
    IDPSEUDO             int not null,
    PSEUDO               longtext not null,
-   MAIL                 longtext,
    primary key (IDPSEUDO)
 );
 
@@ -66,7 +66,7 @@ create table QUESTIONS
 (
    IDQUEST              int not null,
    IDJEUQUEST           int not null,
-   INTITULE             longtext not null,
+   INTITULE             text not null,
    BONNEREP             longtext not null,
    primary key (IDQUEST)
 );
@@ -83,8 +83,8 @@ create table SCORE
    primary key (IDSCORE)
 );
 
-alter table JEU_DE_QUESTIONS add constraint FK_COMPREND foreign key (CATEGORIE)
-      references CATEGORIE (CATEGORIE) on delete restrict on update restrict;
+alter table JEU_DE_QUESTIONS add constraint FK_COMPREND foreign key (IDCAT)
+      references CATEGORIE (IDCAT) on delete restrict on update restrict;
 
 alter table JEU_DE_QUESTIONS add constraint FK_EST_ASSOCIE_A foreign key (IDJEUREP)
       references JEU_DE_REPONSES (IDJEUREP) on delete restrict on update restrict;
