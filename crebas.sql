@@ -1,12 +1,12 @@
 /*==============================================================*/
 /* Nom de SGBD :  MySQL 5.0                                     */
-/* Date de création :  19/05/2015 16:36:21                      */
+/* Date de création :  20/05/2015 16:37:03                      */
 /*==============================================================*/
 
 
 drop table if exists CATEGORIE;
 
-drop table if exists JEU_DE_REPONSES;
+drop table if exists JEUREPONSES;
 
 drop table if exists JOUEUR;
 
@@ -19,22 +19,20 @@ drop table if exists SCORE;
 /*==============================================================*/
 create table CATEGORIE
 (
-   IDCAT                int not null,
-   LIBELLE              longtext not null,
-   primary key (IDCAT)
+   LIBELLE              varchar(30) not null,
+   primary key (LIBELLE)
 );
 
 /*==============================================================*/
-/* Table : JEU_DE_REPONSES                                      */
+/* Table : JEUREPONSES                                          */
 /*==============================================================*/
-create table JEU_DE_REPONSES
+create table JEUREPONSES
 (
-   IDCAT                int not null,
+   LIBELLE              varchar(30) not null,
    IDJEUREP             int not null,
-   REP1                 longtext not null,
-   REP2                 longtext not null,
-   REP3                 longtext not null,
-   primary key (IDCAT, IDJEUREP)
+   REP1                 varchar(40) not null,
+   REP2                 varchar(40) not null,
+   primary key (LIBELLE, IDJEUREP)
 );
 
 /*==============================================================*/
@@ -43,7 +41,7 @@ create table JEU_DE_REPONSES
 create table JOUEUR
 (
    IDPSEUDO             int not null,
-   PSEUDO               longtext not null,
+   PSEUDO               varchar(30) not null,
    primary key (IDPSEUDO)
 );
 
@@ -52,12 +50,12 @@ create table JOUEUR
 /*==============================================================*/
 create table QUESTIONS
 (
-   IDCAT                int not null,
+   LIBELLE              varchar(30) not null,
    IDJEUREP             int not null,
    IDQUEST              int not null,
-   INTITULE             text not null,
-   BONNEREP             longtext not null,
-   primary key (IDCAT, IDJEUREP, IDQUEST)
+   INTITULE             varchar(256) not null,
+   BONNEREP             int not null,
+   primary key (LIBELLE, IDJEUREP, IDQUEST)
 );
 
 /*==============================================================*/
@@ -72,11 +70,11 @@ create table SCORE
    primary key (IDSCORE)
 );
 
-alter table JEU_DE_REPONSES add constraint FK_EST_ASSOCIE_A foreign key (IDCAT)
-      references CATEGORIE (IDCAT) on delete restrict on update restrict;
+alter table JEUREPONSES add constraint FK_EST_ASSOCIE_A foreign key (LIBELLE)
+      references CATEGORIE (LIBELLE) on delete restrict on update restrict;
 
-alter table QUESTIONS add constraint FK_COMPORTE foreign key (IDCAT, IDJEUREP)
-      references JEU_DE_REPONSES (IDCAT, IDJEUREP) on delete restrict on update restrict;
+alter table QUESTIONS add constraint FK_COMPORTE foreign key (LIBELLE, IDJEUREP)
+      references JEUREPONSES (LIBELLE, IDJEUREP) on delete restrict on update restrict;
 
 alter table SCORE add constraint FK_A_OBTENU foreign key (IDPSEUDO)
       references JOUEUR (IDPSEUDO) on delete restrict on update restrict;
