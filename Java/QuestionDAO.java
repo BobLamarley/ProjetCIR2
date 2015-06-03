@@ -56,7 +56,7 @@ System.out.println("INSERT INTO `basetest`.`questions` (`LIBELLE`, `IDJEUREP`, `
 
         return obj;
     }
-    // Methode de suppression d'un jeu de question asssociée a une jeu de rep en passant son id en param
+    // Methode de suppression d'un jeu de question asssociÃ©e a une jeu de rep en passant son id en param
     public Question deleteAll(int idjeurep) {
 
         Question q = new Question();
@@ -76,7 +76,7 @@ System.out.println("INSERT INTO `basetest`.`questions` (`LIBELLE`, `IDJEUREP`, `
 
     }
 
-    // Methode de suppression d'un jeu de question asssociée a une jeu de rep en passant son libelle en param
+    // Methode de suppression d'un jeu de question asssociÃ©e a une jeu de rep en passant son libelle en param
     public Question deleteAll(String libelle) {
 
         Question q = new Question();
@@ -122,7 +122,7 @@ System.out.println("INSERT INTO `basetest`.`questions` (`LIBELLE`, `IDJEUREP`, `
 
 
     /*
-    // Methode d'update d'une question en passant en param l'idjeurep associé
+    // Methode d'update d'une question en passant en param l'idjeurep associÃ©
     public Question update(int idjeurepChange , int idjeurepStatic) {
 
 
@@ -141,7 +141,7 @@ System.out.println("INSERT INTO `basetest`.`questions` (`LIBELLE`, `IDJEUREP`, `
 
     }
     */
-    // Recherche d'UNE questions associée a son jeu de reponse
+    // Recherche d'UNE questions associÃ©e a son jeu de reponse
     public Question find(int id) {
         Question question = new Question();
 
@@ -163,7 +163,7 @@ System.out.println("INSERT INTO `basetest`.`questions` (`LIBELLE`, `IDJEUREP`, `
         return question;
     }
 
-    // Methode qui retourne toutes les questions associées à un jeu de reponses
+    // Methode qui retourne toutes les questions associÃ©es Ã  un jeu de reponses
     public Vector<Question> findAll(int id) {
         Question question = new Question();
         // Vector de Questions
@@ -184,7 +184,7 @@ System.out.println("INSERT INTO `basetest`.`questions` (`LIBELLE`, `IDJEUREP`, `
         return vecQuestion;
 
     }
-    // Methode qui retourne toutes les questions associées à un libelle
+    // Methode qui retourne toutes les questions associÃ©es Ã  un libelle
     public Vector<Question> findAll(String libelle) {
         Question question = new Question();
         // Vector de Questions
@@ -215,7 +215,7 @@ System.out.println("INSERT INTO `basetest`.`questions` (`LIBELLE`, `IDJEUREP`, `
         }
     }
 
-    // Methode qui va rechercher le dernier idQuestion dans la table puis l'incrementer de 1 ( a cause des entités faibles , on ne peut pas gerer directement l'auto-increment donc on le fait ici a la main
+    // Methode qui va rechercher le dernier idQuestion dans la table puis l'incrementer de 1 ( a cause des entitÃ©s faibles , on ne peut pas gerer directement l'auto-increment donc on le fait ici a la main
     public int getMaxId(){
         int maxID = 0;
         try {

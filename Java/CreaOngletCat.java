@@ -38,7 +38,7 @@ public class CreaOngletCat extends JPanel implements ActionListener  {
       
 	fonttitre = new Font("Arial",Font.BOLD , 20);
 
-      titreOngletCat = new JLabel("Gestion des catégories");
+      titreOngletCat = new JLabel("Gestion des catÃ©gories");
 
       titreOngletCat.setFont(fonttitre);
 
@@ -78,7 +78,7 @@ public class CreaOngletCat extends JPanel implements ActionListener  {
       texteCat = new TextField("",24);
 
 
-      boutonAjoutCat = new JButton("Ajouter une catégorie");
+      boutonAjoutCat = new JButton("Ajouter une catÃ©gorie");
 
       boutonAjoutCat.addActionListener(this);
 

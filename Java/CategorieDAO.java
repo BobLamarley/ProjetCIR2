@@ -35,13 +35,13 @@ public class CategorieDAO extends DAO<Categorie> {
         String libelle = obj.getLibelle();
 
         try {
-            System.out.println("Début suppr cat :");
+            System.out.println("DÃ©but suppr cat :");
             QuestionDAO questionDao = new QuestionDAO(this.connect);
             questionDao.deleteAll(libelle);
-            System.out.println("Dans Categ DAO aprés suppr question par libelle");
+            System.out.println("Dans Categ DAO aprÃ©s suppr question par libelle");
             JeuReponseDAO jeuReponseDAO = new JeuReponseDAO(this.connect);
             jeuReponseDAO.delete(libelle);
-            System.out.println("Dans Categ DAO aprés suppr jeu rep par libelle");
+            System.out.println("Dans Categ DAO aprÃ©s suppr jeu rep par libelle");
 
             this.connect.createStatement(
                     ResultSet.TYPE_SCROLL_INSENSITIVE,

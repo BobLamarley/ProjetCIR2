@@ -83,11 +83,11 @@ public class FenetrePopQuest extends JDialog implements ActionListener {
       boutonActu = new JButton("actu");
       boutonActu.addActionListener(this);
 
-      titreCat = new JLabel("Choisir une catégorie :");
+      titreCat = new JLabel("Choisir une catÃ©gorie :");
 
-      labelBR = new JLabel("Bonne réponse:");
+      labelBR = new JLabel("Bonne rÃ©ponse:");
 
-      titreJeuRep = new JLabel("Choisir un jeu de réponses :");
+      titreJeuRep = new JLabel("Choisir un jeu de rÃ©ponses :");
 
       labelTitre = new JLabel("Ajout d'une question");
 

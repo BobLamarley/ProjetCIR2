@@ -11,7 +11,7 @@ public class Question {
     
     // Constructeurs
         public Question(){}
-        // Constructeur de questions avec connaissance de sa catégorie et don son jeud e reponse associé
+        // Constructeur de questions avec connaissance de sa catÃ©gorie et don son jeud e reponse associÃ©
         public Question(int idQuest , String intitule, int bonnerep , String libelle , int idjeurep){
 
             this.idQuest = idQuest;

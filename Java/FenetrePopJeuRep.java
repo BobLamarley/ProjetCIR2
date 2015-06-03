@@ -71,9 +71,9 @@ public class FenetrePopJeuRep extends JDialog implements ActionListener {
 
       listeCat = new JComboBox(); 
 
-      titreCat = new JLabel("Choisir une catégorie :");
+      titreCat = new JLabel("Choisir une catÃ©gorie :");
 
-      labelTitre = new JLabel("Ajout d'un jeu de réponses");
+      labelTitre = new JLabel("Ajout d'un jeu de rÃ©ponses");
 
       boutonOK = new JButton("Ok");
       boutonActu = new JButton("actu");
@@ -82,9 +82,9 @@ public class FenetrePopJeuRep extends JDialog implements ActionListener {
       jeuRep2 = new TextField("",24);
       jeuRep3 = new JLabel("les deux");
 
-      labelJeuRep1 = new JLabel("Réponse 1:");
-      labelJeuRep2 = new JLabel("Réponse 2:");
-      labelJeuRep3 = new JLabel("Réponse 3:");
+      labelJeuRep1 = new JLabel("RÃ©ponse 1:");
+      labelJeuRep2 = new JLabel("RÃ©ponse 2:");
+      labelJeuRep3 = new JLabel("RÃ©ponse 3:");
 
       boutonOK.addActionListener(this);
       listeCat.addActionListener(this);

@@ -64,9 +64,9 @@ public class CreaOngletQuest extends JPanel implements ActionListener  {
     boutonActu = new JButton("Actualiser");
     boutonActu.addActionListener(this);
 
-		titreCat = new JLabel("Choisir une catégorie :");
+		titreCat = new JLabel("Choisir une catÃ©gorie :");
 
-		titreJeuRep = new JLabel("Choisir un jeu de réponses :");
+		titreJeuRep = new JLabel("Choisir un jeu de rÃ©ponses :");
 
     
 		panel_liste = new JPanel();
@@ -155,7 +155,7 @@ public class CreaOngletQuest extends JPanel implements ActionListener  {
                                                                 //GESTION SELECTION DE LA CATEGORIE
        JComboBox cat = (JComboBox)e.getSource();                         
       selectCat = (String)cat.getSelectedItem();
-      System.out.println("sélection d'une catégorie");
+      System.out.println("sÃ©lection d'une catÃ©gorie");
       System.out.println(selectCat);
        this.actuBoxJeuRep(selectCat); 
 
@@ -166,7 +166,7 @@ public class CreaOngletQuest extends JPanel implements ActionListener  {
       jeuRepDAO2 = new JeuReponseDAO(DBConnection.getInstance());
       JComboBox jeuRepCombo = (JComboBox)e.getSource();                         
       String selectJeuRep = (String)jeuRepCombo.getSelectedItem();
-      System.out.println("sélection d'un jeu de rep");
+      System.out.println("sÃ©lection d'un jeu de rep");
       System.out.println(selectJeuRep);
       QuestionDAO lesquest = new QuestionDAO(DBConnection.getInstance());
       Vector<Question> vectQuestion = new Vector<>();
@@ -213,7 +213,7 @@ public class CreaOngletQuest extends JPanel implements ActionListener  {
         else if (idbonnerep == 3) {
           labonnerep = "les deux";
         }
-        objetReturn = new String("Bonne réponse: " + labonnerep );
+        objetReturn = new String("Bonne rÃ©ponse: " + labonnerep );
         vectlistBonneRep.add(objetReturn);
       }
       listBonneRep.setListData(vectlistBonneRep.toArray());

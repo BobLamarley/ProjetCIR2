@@ -48,7 +48,7 @@ public class CreaOngletJeuRep extends JPanel implements ActionListener  {
 
 	  fonttitre = new Font("Arial",Font.BOLD , 20);	
 
-      titreOngletJeuRep = new JLabel("Gestion des jeux de réponses");
+      titreOngletJeuRep = new JLabel("Gestion des jeux de rÃ©ponses");
 
       titreOngletJeuRep.setFont(fonttitre);
 
@@ -95,14 +95,14 @@ public class CreaOngletJeuRep extends JPanel implements ActionListener  {
       listeCat = new JComboBox();
       listeCat.addActionListener(this);
 
-	    titreCat = new JLabel("Choisir une catégorie :");
+	    titreCat = new JLabel("Choisir une catÃ©gorie :");
 
       panel_rep.add(titreCat);
       panel_rep.add(listeCat);
 
       panelGlob1.add(panel_rep,BorderLayout.CENTER);
 
-      boutonAjoutRep = new JButton("Ajouter un jeu de réponses");
+      boutonAjoutRep = new JButton("Ajouter un jeu de rÃ©ponses");
 
       boutonAjoutRep.addActionListener(this);
 

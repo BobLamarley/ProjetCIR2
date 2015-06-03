@@ -14,28 +14,28 @@ public abstract class DAO<T> {
     }
 
     /**
-     * Méthode de création
+     * MÃ©thode de crÃ©ation
      * @param obj
      * @return T
      */
     public abstract T create(T obj);
 
     /**
-     * Méthode pour effacer
+     * MÃ©thode pour effacer
      * @param obj
      * @return T
      */
     public abstract T delete(T obj);
 
     /**
-     * Méthode de mise à jour
+     * MÃ©thode de mise Ã  jour
      * @param obj
      * @return T
      */
     public abstract T update(T obj);
 
     /**
-     * Méthode de recherche des informations avec son id
+     * MÃ©thode de recherche des informations avec son id
      * @param id
      * @return T
      */
@@ -43,7 +43,7 @@ public abstract class DAO<T> {
 // Seront redifinis plus en detail dans les classes filles
     //public abstract T find(int id);
     /**
-     * Méthode de recherche des informations avec son libelle
+     * MÃ©thode de recherche des informations avec son libelle
      * @param libelle
      * @return T
      */

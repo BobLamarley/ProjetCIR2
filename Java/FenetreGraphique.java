@@ -42,13 +42,13 @@ public class FenetreGraphique extends JFrame  {
 
        ongletCat = new CreaOngletCat();
 
-       onglets.addTab("Catégories", ongletCat);
+       onglets.addTab("CatÃ©gories", ongletCat);
 
 
        /**********************************Ajout de l'onglet Jeu de reponses*******************/
 
        ongletJeuRep = new CreaOngletJeuRep();
-       onglets.addTab("Jeux de réponses", ongletJeuRep);
+       onglets.addTab("Jeux de rÃ©ponses", ongletJeuRep);
 
 
 

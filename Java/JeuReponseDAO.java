@@ -12,7 +12,7 @@ public class JeuReponseDAO extends DAO<JeuReponse>{
     public JeuReponseDAO(Connection connect){
              super(connect);
         }
-// Methode permettant de crÈer un jeu de rÈponse en construisant un obj jeureponse avec les parametres indiquÈs puis les envoyer grace a JEUREPONSEDAO.create()
+// Methode permettant de cr√©er un jeu de r√©ponse en construisant un obj jeureponse avec les parametres indiqu√©s puis les envoyer grace a JEUREPONSEDAO.create()
 
     public JeuReponse create(JeuReponse obj){
             int idjeurep = obj.getId();
@@ -31,7 +31,7 @@ public class JeuReponseDAO extends DAO<JeuReponse>{
         return obj;
     }
 
-// MÈthode qui supprime le jeu de rÈponse gr‚ce a son idjeurep et supprime toutes les questions associÈes a cet idjeurep avec la mÈthode QuestionDAO.delete()
+// M√©thode qui supprime le jeu de r√©ponse gr√¢ce a son idjeurep et supprime toutes les questions associ√©es a cet idjeurep avec la m√©thode QuestionDAO.delete()
 
     public JeuReponse delete(JeuReponse obj){
 
@@ -53,7 +53,7 @@ public class JeuReponseDAO extends DAO<JeuReponse>{
 
         return  obj;
     }
-    // MÈthode qui supprime le jeu de rÈponse gr‚ce a son libelle et supprime toutes les questions associÈes a cet idjeurep avec la mÈthode QuestionDAO.delete()
+    // M√©thode qui supprime le jeu de r√©ponse gr√¢ce a son libelle et supprime toutes les questions associ√©es a cet idjeurep avec la m√©thode QuestionDAO.delete()
     public JeuReponse delete(String libelle){
 JeuReponse obj = new JeuReponse();
 
@@ -70,7 +70,7 @@ JeuReponse obj = new JeuReponse();
 
         return  obj;
     }
-// Pour cette methode , ne pas oublier d'utiliser la methode QuestionDAO.update() pour mettre a jour les questions si l'on change le je de rÈponses
+// Pour cette methode , ne pas oublier d'utiliser la methode QuestionDAO.update() pour mettre a jour les questions si l'on change le je de r√©ponses
 
     public JeuReponse update(JeuReponse obj){
         int idjeurep = obj.getId();
@@ -93,7 +93,7 @@ JeuReponse obj = new JeuReponse();
 
     }
 
-    // Methode d'update et de changement de catÈgorie
+    // Methode d'update et de changement de cat√©gorie
     public JeuReponse updateCat(JeuReponse obj){
         int idjeurep = obj.getId();
         String libelle = obj.getLibelle();
@@ -118,7 +118,7 @@ JeuReponse obj = new JeuReponse();
     }
 
 
-    // methode permettant de rechercher les jeu de rÈponses en fonction d'un id jeu rep ,elle remplie la liste de question dans un obj jeurep
+    // methode permettant de rechercher les jeu de r√©ponses en fonction d'un id jeu rep ,elle remplie la liste de question dans un obj jeurep
     public JeuReponse find(int idjeurep){
         int i = 0;
         JeuReponse jeurep = new JeuReponse();
@@ -152,7 +152,7 @@ JeuReponse obj = new JeuReponse();
         return jeurep;
     }
 
-    // methode permettant de rechercher les jeu de rÈponses par son libelle ,elle remplie la liste de question dans un obj jeurep
+    // methode permettant de rechercher les jeu de r√©ponses par son libelle ,elle remplie la liste de question dans un obj jeurep
     public Vector<JeuReponse> find(String libelle){
         int i = 0;
         JeuReponse jeurep = new JeuReponse();
@@ -191,8 +191,8 @@ JeuReponse obj = new JeuReponse();
         return vecJrp;
     }
 
-// methode permettant de rechercher les jeu de rÈponses en fonction d'une catÈgorie choisie , mais ne remplie pas la liste de questions pour chaque objet jeureponse
-    // Elle sera utiliser par exemple lors de l'ajout d'une nouvelle question , dÈs qu'on aura choisie une categorie on fera une requete avec cette methode
+// methode permettant de rechercher les jeu de r√©ponses en fonction d'une cat√©gorie choisie , mais ne remplie pas la liste de questions pour chaque objet jeureponse
+    // Elle sera utiliser par exemple lors de l'ajout d'une nouvelle question , d√©s qu'on aura choisie une categorie on fera une requete avec cette methode
 
     public Vector<JeuReponse> findAll(String libelle){
                 Vector<JeuReponse> vecJeuReponse = new Vector<JeuReponse>();
@@ -213,7 +213,7 @@ JeuReponse obj = new JeuReponse();
         return vecJeuReponse;
     }
 
-    // mÈthode qui rÈcupere le dernier id de jeu de rÈponse dans la base et l'incrÈmente de 1 pour le prochain jeu de reponse a ajouter
+    // m√©thode qui r√©cupere le dernier id de jeu de r√©ponse dans la base et l'incr√©mente de 1 pour le prochain jeu de reponse a ajouter
     public int getMaxId(){
         int maxID = 0;
         try {

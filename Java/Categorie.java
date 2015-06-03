@@ -36,21 +36,21 @@ public class Categorie {
         this.listJeuReponse =  listJeuReponse;
     }
 
-    //Ajoute une question à un jeu de question
+    //Ajoute une question Ã  un jeu de question
     public void addJeuReponse(JeuReponse jeuReponse){
         if(!this.listJeuReponse.contains(jeuReponse)) {
             this.listJeuReponse.add(jeuReponse);
         }
     }
 
-    //Retire une question à un jeu de questions
+    //Retire une question Ã  un jeu de questions
     public void removeJeuReponse(JeuReponse jeuReponse){
             this.listJeuReponse.remove(jeuReponse);
     }
 
     public String toString(){
         String str = 	"Libelle categorie : " + this.getLibelle() + "\n";
-        str +=			"LISTE DES jeu de réponse et questions associée a cette categorie : \n";
+        str +=			"LISTE DES jeu de rÃ©ponse et questions associÃ©e a cette categorie : \n";
         for(JeuReponse jeuReponse : this.listJeuReponse) {
             str += jeuReponse.toString() + "\n";
         }

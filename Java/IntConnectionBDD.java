@@ -36,7 +36,7 @@ public class IntConnectionBDD extends JFrame  implements ActionListener {
         super();   // Appel du constructeur de la super-classe (JFrame)
         interfaceBDD = new FenetreGraphique();
         this.setTitle("Access DataBase");  // on donne un titre a notre fenetre
-        Font police = new Font("Arial", Font.BOLD, 14);  // on spécifie quel type de police , ainsi que la taille utilisée dans notre fenetre
+        Font police = new Font("Arial", Font.BOLD, 14);  // on spÃ©cifie quel type de police , ainsi que la taille utilisÃ©e dans notre fenetre
 
         JPanel panel_connect = new JPanel();  //
         JPanel panel_url = new JPanel();

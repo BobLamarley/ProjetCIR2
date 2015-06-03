@@ -61,7 +61,7 @@ public class JeuReponse {
         this.listQuestion = listQuestion;
     }
 
-    //Ajoute une question à un jeu de question
+    //Ajoute une question Ã  un jeu de question
     public void addQuestion(Question question){
         System.out.println("Methode AddQuestion");
         if(!this.listQuestion.contains(question)) {
@@ -72,7 +72,7 @@ public class JeuReponse {
     //public Question getQuestion(int id){
        // return this.listQuestion.get(id);
    // }
-    //Retire une question à un jeu de questions
+    //Retire une question Ã  un jeu de questions
     public void removeQuestion(Question question){
         this.listQuestion.remove(question);
     }

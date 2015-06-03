@@ -24,7 +24,7 @@ public class DBConnection{
     // Status connection pour lever l'erreur MysqlSyntaxErroreception et savoir si on est bien co
     private static boolean statusConnection = true;
 
-    //Constructeur privé
+    //Constructeur privÃ©
     private DBConnection(){
 
         try {
@@ -46,7 +46,7 @@ public class DBConnection{
         return statusConnection;
     }
 
-    //Méthode qui va nous retourner notre instance et la créer si elle n'existe pas
+    //MÃ©thode qui va nous retourner notre instance et la crÃ©er si elle n'existe pas
     public static Connection getFirstInstance(String url , String user , String password) {
 
             if (connect == null ) {
@@ -59,7 +59,7 @@ public class DBConnection{
                     System.out.println("1");
                     new DBConnection();
                 if(DBConnection.getStatusConnection() == true) {
-                    System.out.println("Vous êtes bien connectés");
+                    System.out.println("Vous Ãªtes bien connectÃ©s");
                 }else{
                     System.out.println("Url , login , ou mdp incorrect");
 
@@ -72,7 +72,7 @@ public class DBConnection{
 
         return connect;
     }
-    //Méthode qui va nous retourner notre instance et la créer si elle n'existe pas
+    //MÃ©thode qui va nous retourner notre instance et la crÃ©er si elle n'existe pas
     public static Connection getInstance() {
 
 
