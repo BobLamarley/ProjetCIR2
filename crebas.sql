@@ -1,81 +1,81 @@
 /*==============================================================*/
 /* Nom de SGBD :  MySQL 5.0                                     */
-/* Date de création :  20/05/2015 16:37:03                      */
+/* Date de création :  04/06/2015 08:47:15                      */
 /*==============================================================*/
 
 
-drop table if exists CATEGORIE;
+drop table if exists categorie;
 
-drop table if exists JEUREPONSES;
+drop table if exists jeureponses;
 
-drop table if exists JOUEUR;
+drop table if exists joueur;
 
-drop table if exists QUESTIONS;
+drop table if exists questions;
 
-drop table if exists SCORE;
+drop table if exists score;
 
 /*==============================================================*/
-/* Table : CATEGORIE                                            */
+/* Table : categorie                                            */
 /*==============================================================*/
-create table CATEGORIE
+create table categorie
 (
-   LIBELLE              varchar(30) not null,
-   primary key (LIBELLE)
+   libelle              varchar(30) not null,
+   primary key (libelle)
 );
 
 /*==============================================================*/
-/* Table : JEUREPONSES                                          */
+/* Table : jeureponses                                          */
 /*==============================================================*/
-create table JEUREPONSES
+create table jeureponses
 (
-   LIBELLE              varchar(30) not null,
-   IDJEUREP             int not null,
-   REP1                 varchar(40) not null,
-   REP2                 varchar(40) not null,
-   primary key (LIBELLE, IDJEUREP)
+   libelle              varchar(30) not null,
+   idjeurep             int not null,
+   rep1                 varchar(40) not null,
+   rep2                 varchar(40) not null,
+   primary key (libelle, idjeurep)
 );
 
 /*==============================================================*/
-/* Table : JOUEUR                                               */
+/* Table : joueur                                               */
 /*==============================================================*/
-create table JOUEUR
+create table joueur
 (
-   IDPSEUDO             int not null,
-   PSEUDO               varchar(30) not null,
-   primary key (IDPSEUDO)
+   idpseudo             int not null auto_increment,
+   pseudo               varchar(30) not null,
+   primary key (idpseudo)
 );
 
 /*==============================================================*/
-/* Table : QUESTIONS                                            */
+/* Table : questions                                            */
 /*==============================================================*/
-create table QUESTIONS
+create table questions
 (
-   LIBELLE              varchar(30) not null,
-   IDJEUREP             int not null,
-   IDQUEST              int not null,
-   INTITULE             varchar(256) not null,
-   BONNEREP             int not null,
-   primary key (LIBELLE, IDJEUREP, IDQUEST)
+   libelle              varchar(30) not null,
+   idjeurep             int not null,
+   idquest              int not null,
+   intitule             varchar(256) not null,
+   bonnerep             int not null,
+   primary key (libelle, idjeurep, idquest)
 );
 
 /*==============================================================*/
-/* Table : SCORE                                                */
+/* Table : score                                                */
 /*==============================================================*/
-create table SCORE
+create table score
 (
-   IDSCORE              int not null,
-   IDPSEUDO             int,
-   SCORE                int not null,
-   TEMPSREPMOY          decimal not null,
-   primary key (IDSCORE)
+   idscore              int not null,
+   idpseudo             int,
+   score                int not null,
+   tempsrepmoy          decimal not null,
+   primary key (idscore)
 );
 
-alter table JEUREPONSES add constraint FK_EST_ASSOCIE_A foreign key (LIBELLE)
-      references CATEGORIE (LIBELLE) on delete restrict on update restrict;
+alter table jeureponses add constraint fk_est_associe_a foreign key (libelle)
+      references categorie (libelle) on delete restrict on update restrict;
 
-alter table QUESTIONS add constraint FK_COMPORTE foreign key (LIBELLE, IDJEUREP)
-      references JEUREPONSES (LIBELLE, IDJEUREP) on delete restrict on update restrict;
+alter table questions add constraint fk_comporte foreign key (libelle, idjeurep)
+      references jeureponses (libelle, idjeurep) on delete restrict on update restrict;
 
-alter table SCORE add constraint FK_A_OBTENU foreign key (IDPSEUDO)
-      references JOUEUR (IDPSEUDO) on delete restrict on update restrict;
+alter table score add constraint fk_a_obtenu foreign key (idpseudo)
+      references joueur (idpseudo) on delete restrict on update restrict;
 
