@@ -54,7 +54,7 @@ public class FenetrePopJeuRep extends JDialog implements ActionListener {
 
        super();
        this.setModal(true);
-       this.setTitle("Ajout d'une question");
+       this.setTitle("Ajout d'un jeu de réponses");
        this.setSize(300, 220);
        this.setResizable(false); 
 
@@ -123,11 +123,23 @@ public class FenetrePopJeuRep extends JDialog implements ActionListener {
 
         if (e.getSource() == boutonOK) {
           System.out.println("clic sur ok");
-          rep1 = jeuRep1.getText();
-          rep2 = jeuRep2.getText();
-          jeuRepDAO = new JeuReponseDAO(DBConnection.getInstance());
-          jeuRepDAO.create(new JeuReponse( selectCat , jeuRepDAO.getMaxId() , rep1 , rep2 ));
-          this.setVisible(false);
+          DialogErreur erreur = new DialogErreur();
+          if ( jeuRep1.getText().equals("") || jeuRep2.getText().equals("")) {
+            erreur.textRepVide();
+          }
+          if ( selectCat == null ) {
+            erreur.catVide();
+          }
+          else if ( selectCat != null && !jeuRep1.getText().equals("") && !jeuRep2.getText().equals("") ) {
+            rep1 = jeuRep1.getText();
+            rep2 = jeuRep2.getText();
+            jeuRepDAO = new JeuReponseDAO(DBConnection.getInstance());
+            jeuRepDAO.create(new JeuReponse( selectCat , jeuRepDAO.getMaxId() , rep1 , rep2 ));
+            this.setVisible(false);
+            jeuRep1.setText("");
+            jeuRep2.setText("");
+            listeCat.removeAllItems();
+          }
         }
 
         if (e.getSource()== boutonActu ) {

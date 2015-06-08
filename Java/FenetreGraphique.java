@@ -9,7 +9,7 @@ import java.io.FileWriter;
 import java.io.File;
 import java.util.*;
 
-public class FenetreGraphique extends JFrame  {
+public class FenetreGraphique extends JFrame implements WindowListener {
 
    private JPanel panel;  
    private JLabel titreInt;
@@ -21,11 +21,13 @@ public class FenetreGraphique extends JFrame  {
 
    private String rep1;
    private String rep2;
-
+   public static FenetreGraphique fenetre = new FenetreGraphique();
+   private JTextArea display;
 
     public FenetreGraphique() {	
 
        super();
+       display = new JTextArea();
        this.setTitle("Gestion de la BDD");
        this.setSize(700, 500);
        this.setResizable(false);
@@ -65,9 +67,56 @@ public class FenetreGraphique extends JFrame  {
 
        this.getContentPane().add(panel);
 
-       this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);             
+       addWindowListener(this);
+
+       //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+       this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);             
        this.setVisible(false);
     }
-    
-    
+
+    public void windowClosing(WindowEvent e) {
+        displayMessage("WindowListener method called: windowClosing.");
+        DialogErreur erreur = new DialogErreur();
+        VerifResult verif = new VerifResult(DBConnection.getInstance());
+        verif.selectCat();
+        if (verif.getManqueCat().size() == 0 && verif.getManqueJeuRep().size() == 0 ) {
+           this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+           System.out.println("il n'y a pas d'erreurs");
+        }
+        else {
+        erreur.afficheManqueJeuRep(verif.getManqueCat());
+        erreur.afficheManqueQuest(verif.getManqueJeuRep());
+        System.out.println("ca passe dans le else");
+        
+      }
+
+      }
+
+      void displayMessage(String msg) {
+        display.append(msg);
+        System.out.println(msg);
+    }
+    public void windowClosed(WindowEvent e) {
+        
+    }
+
+    public void windowOpened(WindowEvent e) {
+       
+    }
+
+    public void windowIconified(WindowEvent e) {
+        
+    }
+
+    public void windowDeiconified(WindowEvent e) {
+        
+    }
+
+    public void windowActivated(WindowEvent e) {
+        
+    }
+
+    public void windowDeactivated(WindowEvent e) {
+        
+    }
 }

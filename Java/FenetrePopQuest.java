@@ -127,9 +127,21 @@ public class FenetrePopQuest extends JDialog implements ActionListener {
 
         if (e.getSource() == boutonOK) {
           controleur = new Controle();
+          DialogErreur erreur = new DialogErreur();
           System.out.println("clic sur ok");
           questDAO = new QuestionDAO(DBConnection.getInstance());
           newquestion = question.getText();
+          if (newquestion.equals("")) {
+              erreur.questionVide();
+          }
+          if (selectCat == null) {
+            erreur.selectCatVide();
+          }
+          if (jeuRepCorrect == null) {
+            erreur.jeuRepVide();
+          }
+
+          else if ( selectCat != null && jeuRepCorrect != null && !newquestion.equals("")) {
           questionControle = controleur.controleChaine(newquestion);
           String selectBR = new String((String)listeBR.getSelectedItem());
           if ( selectBR.equals(jeuRepCorrect.getRep1())) {
@@ -143,7 +155,14 @@ public class FenetrePopQuest extends JDialog implements ActionListener {
           }
           questDAO.create(new Question( questDAO.getMaxId(), questionControle , bonnerep , selectCat, idJeuRep ));
           System.out.println("ca passe la requete");
-          this.setVisible(false);      
+          this.setVisible(false);
+          question.setText("");
+          selectCat = null;
+          jeuRepCorrect = null;
+          listeBR.removeAllItems();
+          listeCat.removeAllItems();
+          listeJeuRep.removeAllItems();
+          }      
         }
 
 

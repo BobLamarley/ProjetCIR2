@@ -226,10 +226,15 @@ public class CreaOngletQuest extends JPanel implements ActionListener  {
             System.out.println(erf[i]);
             element = erf[i].toString();
         }
-        popupModif.setText(element);
-        popupModif.setReponse(jeuRepFin);
-        Vector<Question> vectQuest = new Vector<>();
-        vectQuest = questionDAO.findAll(idJeuRep);
+        if (element == null) {
+              DialogErreur erreur = new DialogErreur();
+              erreur.selectQuestionVide();
+        }
+        else {
+          popupModif.setText(element);
+          popupModif.setReponse(jeuRepFin);
+          Vector<Question> vectQuest = new Vector<>();
+          vectQuest = questionDAO.findAll(idJeuRep);
                   
         for(int i=0;i<vectQuest.size();i++){
             question = vectQuest.elementAt(i);
@@ -239,14 +244,13 @@ public class CreaOngletQuest extends JPanel implements ActionListener  {
         }
 
         popupModif.setVisible(true);
-        System.out.println(element);
-        String newquestion = popupModif.getText();
-        System.out.println(newquestion);
+      }
+      element = null;
     }
 
 
     if (e.getSource() == boutonActu) {
-        this.actuBoxCat();
+      this.actuBoxCat();
     }
 
 
@@ -257,20 +261,25 @@ public class CreaOngletQuest extends JPanel implements ActionListener  {
                         System.out.println(erf[i]);
                         element = erf[i].toString();
                   }
-                  Vector<Question> vectQuest = new Vector<>();
-                  System.out.println(idJeuRep);
-                  vectQuest = questionDAO.findAll(idJeuRep);
+                  if (element == null) {
+                      DialogErreur erreur = new DialogErreur();
+                      erreur.selectQuestionVide();
+                  }
+                  else {
+
+                    Vector<Question> vectQuest = new Vector<>();
+                    System.out.println(idJeuRep);
+                    vectQuest = questionDAO.findAll(idJeuRep);
                   
-                  for(int i=0;i<vectQuest.size();i++){
+                    for(int i=0;i<vectQuest.size();i++){
                         question = vectQuest.elementAt(i);
                         if(question.getIntitule().equals(element)) {
                               questionDAO.delete(question);
                         }
+                    }
                   }
-
-    }
-
-
+                  element = null;
+      }
     
   }
 

@@ -23,6 +23,8 @@ public class PopupModifQuest extends JDialog implements ActionListener {
    private int bonnerep;
    private Question modifQuestion;
    private JLabel labelBR;
+   private Controle controleur;
+   private String questionControle;
 
 
 
@@ -36,10 +38,8 @@ public class PopupModifQuest extends JDialog implements ActionListener {
        jeuReponse = new JeuReponse();
        modifQuestion = new Question();
 
-       labelBR = new JLabel("Bonne réponse:");
+       labelBR = new JLabel("Bonne rÃ©ponse:");
 
-       boutonActu = new JButton("actualiser");
-       boutonActu.addActionListener(this);
 
       titreOnglet = new JLabel("Modifier question");
       ongletQuest = new JPanel();
@@ -50,7 +50,6 @@ public class PopupModifQuest extends JDialog implements ActionListener {
       question = new TextField("",30);
       boutonOK.addActionListener(this);
       ongletQuest.add(titreOnglet);
-      ongletQuest.add(boutonActu);
       ongletQuest.add(question);
       ongletQuest.add(labelBR);
       ongletQuest.add(listeBR);
@@ -69,9 +68,15 @@ public class PopupModifQuest extends JDialog implements ActionListener {
 
         if (e.getSource() == boutonOK) {
           System.out.println("clic sur ok");
+          DialogErreur erreur = new DialogErreur();
           texte = question.getText();
+          if (texte.equals("")){
+              erreur.questionVide();
+          }
+          else {
           questDAO = new QuestionDAO(DBConnection.getInstance());
-
+          controleur = new Controle();
+          questionControle = controleur.controleChaine(texte);
           String selectBR = new String((String)listeBR.getSelectedItem());
           if ( selectBR.equals(jeuReponse.getRep1())) {
               bonnerep = 1;
@@ -87,7 +92,10 @@ public class PopupModifQuest extends JDialog implements ActionListener {
           questDAO.update(modifQuestion);
           System.out.println("ca passe la requete");
           this.setVisible(false);
-
+          question.setText("");
+          listeBR.removeAllItems();
+          }
+  
         }
   
   }

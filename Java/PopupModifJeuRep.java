@@ -39,13 +39,13 @@ public class PopupModifJeuRep extends JDialog implements ActionListener {
 
        super();
        this.setModal(true);
-       this.setTitle("Modification d'un jeu de réponses");
+       this.setTitle("Modification d'un jeu de rÃ©ponses");
        this.setSize(300, 200);
        this.setResizable(false);
        panelGlobal = new JPanel();
       panelGlobal.setLayout(new BorderLayout());
 
-      titreJeuRep = new JLabel("Modifier jeu de réponses");
+      titreJeuRep = new JLabel("Modifier jeu de rÃ©ponses");
 
       panel1 = new JPanel();
       panel2 = new JPanel();
@@ -62,9 +62,9 @@ public class PopupModifJeuRep extends JDialog implements ActionListener {
       jeuRep2 = new TextField("",24);
       jeuRep3 = new JLabel("les deux");
 
-      labelJeuRep1 = new JLabel("Réponse 1:");
-      labelJeuRep2 = new JLabel("Réponse 2:");
-      labelJeuRep3 = new JLabel("Réponse 3:");
+      labelJeuRep1 = new JLabel("RÃ©ponse 1:");
+      labelJeuRep2 = new JLabel("RÃ©ponse 2:");
+      labelJeuRep3 = new JLabel("RÃ©ponse 3:");
       panel2.add(labelJeuRep1);
       panel2.add(jeuRep1);
       panel2.add(labelJeuRep2);
@@ -90,12 +90,20 @@ public class PopupModifJeuRep extends JDialog implements ActionListener {
 
         if (e.getSource() == boutonOK) {
           System.out.println("clic sur ok");
+
+          if ( jeuRep1.getText().equals("") || jeuRep2.getText().equals("")) {
+            DialogErreur erreur = new DialogErreur();
+            erreur.textRepVide();
+          }
+          else {
           jeuRepDAO = new JeuReponseDAO(DBConnection.getInstance());
           jeurep.setRep1(jeuRep1.getText());
           jeurep.setRep2(jeuRep2.getText());
           jeuRepDAO.update(jeurep);
+          jeuRep1.setText("");
+          jeuRep2.setText("");
           this.setVisible(false);
-
+        }
         }
   }
 

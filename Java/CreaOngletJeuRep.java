@@ -37,6 +37,7 @@ public class CreaOngletJeuRep extends JPanel implements ActionListener  {
   private String element;
   private JButton boutonModif;
   private PopupModifJeuRep popupModif;
+  //private JOptionPane dialogErreur;
 
 
 
@@ -126,13 +127,19 @@ public class CreaOngletJeuRep extends JPanel implements ActionListener  {
           	popupJeuRep.setVisible(true);
           }
 
-        if (e.getSource() == boutonModif) {
-            System.out.println("clic sur modif jeu reponses");
-            Object [] erf = list.getSelectedValues();
-                  for(int i = 0; i < erf.length; i++) {
+        if (e.getSource() == boutonModif) { 
+          System.out.println("clic sur modif jeu reponses");
+              Object [] erf = list.getSelectedValues();
+              for(int i = 0; i < erf.length; i++) {
                         System.out.println(erf[i]);
                         element = erf[i].toString();
                   }
+            if (element == null) {
+                DialogErreur erreur = new DialogErreur();
+                erreur.jeuRepVide();
+            }
+            else {
+
                   Vector<JeuReponse> vectJeuRep= new Vector<>();
                   vectJeuRep = jeuRepDAO.findAll(categorieSelect);
                   
@@ -143,9 +150,12 @@ public class CreaOngletJeuRep extends JPanel implements ActionListener  {
                               popupModif.setRep2(jeuRep.getRep2());
                               popupModif.setJeuRep(jeuRep);
                         }
-                  }
+                  } 
+                  popupModif.setVisible(true);
+                  element = null;
 
-            popupModif.setVisible(true);
+            }
+           
           }
 
         if (e.getSource() == listeCat) {    
@@ -181,15 +191,22 @@ public class CreaOngletJeuRep extends JPanel implements ActionListener  {
                         System.out.println(erf[i]);
                         element = erf[i].toString();
                   }
-                  Vector<JeuReponse> vectJeuRep= new Vector<>();
-                  vectJeuRep = jeuRepDAO.findAll(categorieSelect);
+                  if (element == null) {
+                      DialogErreur erreur = new DialogErreur();
+                      erreur.jeuRepVide();
+                  }
+                  else {
+                    Vector<JeuReponse> vectJeuRep= new Vector<>();
+                    vectJeuRep = jeuRepDAO.findAll(categorieSelect);
                   
-                  for(int i=0;i<vectJeuRep.size();i++){
+                    for(int i=0;i<vectJeuRep.size();i++){
                         jeuRep = vectJeuRep.elementAt(i);
                         if(jeuRep.transformToText().equals(element)) {
                               jeuRepDAO.delete(jeuRep);
 
                         }
+                    }
+                    element = null;
                   }
 
         }

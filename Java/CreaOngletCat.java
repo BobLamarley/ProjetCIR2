@@ -29,6 +29,7 @@ public class CreaOngletCat extends JPanel implements ActionListener  {
       private Categorie categorie;
       private JButton boutonSup;
       private String element;
+      //private JOptionPane dialogErreur;
 
 
 	public CreaOngletCat() {
@@ -102,9 +103,16 @@ public class CreaOngletCat extends JPanel implements ActionListener  {
 		if (e.getSource() == boutonAjoutCat) {
                   System.out.println("clic sur ajouter categorie");
                   texteAjout = texteCat.getText();
-                  categorie.setLibelle(texteAjout);
-                  catDAO.create(categorie);
-                  this.actuListe();
+                  if (texteAjout.equals("")){
+                        DialogErreur erreur = new DialogErreur();
+                        erreur.catVide();
+                  }
+                  else {
+                        categorie.setLibelle(texteAjout);
+                        catDAO.create(categorie);
+                        this.actuListe();
+                  }
+                  texteCat.setText("");
             }
             if (e.getSource() == boutonActu) {
                   this.actuListe();
