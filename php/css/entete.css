@@ -1,0 +1,59 @@
+@font-face { 
+  font-family: 'burger'; 
+  src: url('Horsal.ttf') format("TrueType"); 
+
+}
+@font-face { 
+  font-family: 'roboto'; 
+  src: url('roboto.ttf') format("TrueType"); 
+
+}
+@font-face { 
+  font-family: 'cookie'; 
+  src: url('cookie.otf') format("TrueType"); 
+
+}
+p,h2,h3 {
+font-family: 'roboto';
+}
+
+
+
+p{
+    font-size: 2em;
+}
+
+[class*="col-"] {
+  /*border: 2px solid black;*/
+  border-radius: 6px;
+  padding: 10px;
+  line-height: 40px;
+  text-align: center;
+}
+
+div#space{
+    padding: 15px;
+}
+h1  {
+	font-family: 'cookie';
+	font-size: 8.9em;
+	text-align: center;
+	color:red;
+}
+h2 {
+	text-align: center;
+	font-size: 4.2em;
+}
+
+#boutonjouer{
+	margin-top: 160px;
+}
+
+#tableaupalma {
+	width: 40%;
+	margin-left: 28%;
+	margin-top: 5%;
+}
+#bip{
+	margin-left: 100px;
+}

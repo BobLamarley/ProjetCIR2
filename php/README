@@ -1,0 +1,17 @@
+    Mise en place de la base de donnée (avec du contenu dans la base ) :
+    
+  1) Créer une base et lui donner un nom
+  2) Importer le fichier example.sql
+  3) Verifier que la abse à bien été crée
+  4) Ouvrir le fichier connect.php et modifier cette ligne
+        $this->bdd = new PDO('mysql:host=127.0.0.1;dbname=LENOMDEMABASE','UTILISATEUR','MOTDEPASSE', array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+        Modifier les champs LENOMDEMABASE , UTILISATEUR et MOTDEPASSE
+        
+
+        Voila, votre base est maintenant créée.
+        
+    
+        
+        
+        
+    
